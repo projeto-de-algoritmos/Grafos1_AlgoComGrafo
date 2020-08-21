@@ -22,7 +22,7 @@ Tenha o *git*, *make* e o compilador *c++* instalado na sua maquina.
 
 Para clonar:
 
-`git clone https://github.com/EDAII/Lista6_BrunoNunes_GuilhermeBotelho.git`
+`git clone https://github.com/projeto-de-algoritmos/Grafos1_AlgoComGrafos.git`
 
 Para compilar o programa:
 
