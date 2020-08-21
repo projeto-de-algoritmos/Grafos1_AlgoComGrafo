@@ -18,7 +18,23 @@ Adicione 3 ou mais screenshots do projeto em funcionamento.
 ## Instalação 
 **Linguagem**: C++<br>
 
-Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
+Tenha o *git*, *make* e o compilador *c++* instalado na sua maquina.
+
+Para clonar:
+
+`git clone https://github.com/EDAII/Lista6_BrunoNunes_GuilhermeBotelho.git`
+
+Para compilar o programa:
+
+`make`
+
+Para executar o programa:
+
+`make run`
+
+Para limpar os arquivos .o e bin do programa:
+
+`make clean`
 
 ## Uso 
 Explique como usar seu projeto caso haja algum passo a passo após o comando de execução.
