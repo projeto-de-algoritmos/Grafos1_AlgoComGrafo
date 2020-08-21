@@ -1,27 +1,13 @@
-**!! Atenção: Renomeie o seu repositório para (Tema)_(NomeDoProjeto). !!** 
+# AlgoComGrafo
 
-Temas:
- - Grafos1
- - Grafos2
- - PD
- - D&C
- - Greed
- - Final 
- 
- **!! *Não coloque os nomes dos alunos no título do repositório*. Exemplo de título correto: Grafos2_Labirinto-do-Minotauro !!**
- 
- (Apague essa seção)
-
-# NomedoProjeto
-
-**Número da Lista**: X<br>
+**Número da Lista**: 1<br>
 **Conteúdo da Disciplina**: XXXXXXXXXX<br>
 
 ## Alunos
 |Matrícula | Aluno |
 | -- | -- |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
+| 18/0117548  |  Bruno Carmo Nunes |
+| 16/0141842  |  Philipe Rosa Serafim |
 
 ## Sobre 
 Descreva os objetivos do seu projeto e como ele funciona. 
@@ -30,8 +16,8 @@ Descreva os objetivos do seu projeto e como ele funciona.
 Adicione 3 ou mais screenshots do projeto em funcionamento.
 
 ## Instalação 
-**Linguagem**: xxxxxx<br>
-**Framework**: (caso exista)<br>
+**Linguagem**: C++<br>
+
 Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
 
 ## Uso 
