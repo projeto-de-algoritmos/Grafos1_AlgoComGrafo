@@ -1,4 +1,4 @@
-# AlgoComGrafo
+# QuarantineInfected
 
 **Número da Lista**: 1<br>
 **Conteúdo da Disciplina**: XXXXXXXXXX<br>
@@ -22,7 +22,7 @@ Tenha o *git*, *make* e o compilador *c++* instalado na sua maquina.
 
 Para clonar:
 
-`git clone https://github.com/projeto-de-algoritmos/Grafos1_AlgoComGrafos.git`
+`git clone https://github.com/projeto-de-algoritmos/Grafos1_QuarantineInfected.git`
 
 Para compilar o programa:
 
