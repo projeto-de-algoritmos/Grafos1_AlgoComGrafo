@@ -1,5 +1,7 @@
 #include <iostream>
 #include "../inc/plano2D.hpp"
+#include "../inc/grafo.hpp"
+#include "../inc/geradoresAleatorios.hpp"
 
 int main(){
 
