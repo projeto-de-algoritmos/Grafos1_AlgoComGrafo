@@ -3,6 +3,7 @@
 #include "../inc/grafo.hpp"
 #include "../inc/geradoresAleatorios.hpp"
 
+
 int main(){
 
     int menu{};
@@ -10,13 +11,13 @@ int main(){
     int posY{};
     int valor{};
 
-    Plano2D planoInicial;
+     Plano2D planoInicial;
 
-    planoInicial.gerarPlano();
+     planoInicial.gerarPlano();
 
-    while (true) {
+     while (true) {
 
-        //TODO Melhorar a UI
+         //TODO Melhorar a UI
 
         std::cout << "Escolha uma opção: " << '\n';
         std::cout << "1. Imprimir plano" << '\n';
