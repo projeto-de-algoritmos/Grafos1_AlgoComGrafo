@@ -15,8 +15,11 @@ using namespace std;
 class Grafo{
 
 private:
-    int v;                      //Qnt de nós
-    list<int> *adj;             //Ponteiro para lista de adjacencias (vizinhos do nó)
+    int v;                            //Qnt de nós
+    bool *contaminado = new bool[v];  //Determina o estado do nó
+    bool *bloqueado = new bool[v];    //Impossibilita contagio através desse nó
+    list<int> *adj;                   //Ponteiro para lista de adjacencias (vizinhos do nó)
+
 public:
     Grafo();
     Grafo(int v);                   //Construtor
