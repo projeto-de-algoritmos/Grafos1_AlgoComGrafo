@@ -14,7 +14,7 @@ int main(){
 
      planoInicial.gerarTeste();
 
-     planoInicial.contruirMapaGrafo();
+     planoInicial.construirMapaGrafo();
 
     //  planoInicial.bfs(46);
 

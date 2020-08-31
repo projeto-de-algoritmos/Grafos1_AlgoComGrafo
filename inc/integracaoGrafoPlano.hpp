@@ -16,7 +16,7 @@ public:
     ~IntegracaoGrafoPlano();
 
     //Vai construir vertices em estrela nos nós de dentro
-    void contruirMapaGrafo();
+    void construirMapaGrafo();
 
     int getValorNo();
     void setValorNo(int valorNo);

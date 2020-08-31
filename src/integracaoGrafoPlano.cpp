@@ -12,7 +12,7 @@ IntegracaoGrafoPlano::~IntegracaoGrafoPlano() {
         delete bloqueado;
 }
 
-void IntegracaoGrafoPlano::contruirMapaGrafo() {
+void IntegracaoGrafoPlano::construirMapaGrafo() {
 
 
 /*
