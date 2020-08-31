@@ -6,7 +6,7 @@
 #include <queue>
 #include <stack>
 
-//Numero total da matrix 35x35
+//Numero total da matrix 40x40
 constexpr int MAX_VALUE { 40 };
 
 

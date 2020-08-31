@@ -16,8 +16,9 @@ int main(){
 
      planoInicial.construirMapaGrafo();
 
-    //  planoInicial.bfs(46);
+     //planoInicial.bfs(43);
 
+     // coloque false para testar as buscas nos nós
      while (true) {
 
          //TODO Melhorar a UI

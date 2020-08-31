@@ -3,8 +3,8 @@
 
 
 Plano2D::Plano2D() {
-    for (int i = 0; i<=MAX_VALUE ; i++) {
-        for (int j = 0; j<=MAX_VALUE ; j++) {
+    for (int i = 0; i < MAX_VALUE ; i++) {
+        for (int j = 0; j < MAX_VALUE ; j++) {
             mapaXY[i][j] = 0;
         }
     }

@@ -24,12 +24,12 @@ void IntegracaoGrafoPlano::construirMapaGrafo() {
        *  *  *
 */
 
-    for(int i = 0; i<=MAX_VALUE; i++) {
-        for (int j = 0; j<=MAX_VALUE; j++) {
+    for(int i = 0; i < MAX_VALUE; i++) {
+        for (int j = 0; j < MAX_VALUE; j++) {
 
             //TODO integração das laterais
 
-            if (i > 0 && i < 40 && j > 0 &&j < 40) {
+            if (i > 0 && i < 39 && j > 0 &&j < 39) {
                 addEdge((40*i)+j,(40*(i-1))+j-1);  /* lado \  */
                 addEdge((40*i)+j,(40*(i-1))+j);    /* lado |  */
                 addEdge((40*i)+j,(40*(i-1))+j+1);  /* lado /  */
