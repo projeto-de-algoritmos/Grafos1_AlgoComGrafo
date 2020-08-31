@@ -6,6 +6,10 @@
 #include <queue>
 #include <stack>
 
+//Numero total da matrix 35x35
+constexpr int MAX_VALUE { 40 };
+
+
 using namespace std;
 
 class Grafo{
@@ -16,6 +20,7 @@ private:
 public:
     Grafo();
     Grafo(int v);                   //Construtor
+    ~Grafo();
     int  getGraphSize ();
     void addEdge(int u, int v);     //Adiciona uma aresta
     string printEdge(int u, int v); //Retorna a string formatada da aresta: (U, V)

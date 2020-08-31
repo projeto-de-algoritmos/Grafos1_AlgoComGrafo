@@ -10,6 +10,9 @@
         adj = new list<int>[v];    //Vetor de lista de adjacencias para os vizinhos de cada nó
     }
 
+    Grafo::~Grafo(){
+    }
+
     int Grafo::getGraphSize(){
         return v;
     }

@@ -14,10 +14,12 @@ public:
     ~Plano2D();
 
     int get_mapaXY(int i, int j);
-    void set_mapaXY(int i, int j, int value);
+    void setBlock(int no, bool status);
+
+    void setInfected(int no, bool status);
 
     //Vai gerar um protipo para contaminados e bloqueados
-    void gerarPlano();
+    void gerarTeste();
     //Vai imprimir o plano2D
     void imprimirPlano();
 

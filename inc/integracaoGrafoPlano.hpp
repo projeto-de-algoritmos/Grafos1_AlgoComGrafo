@@ -3,8 +3,6 @@
 
 #include "grafo.hpp"
 
-constexpr int MAX_VALUE { 39 };
-
 class IntegracaoGrafoPlano : public Grafo {
 
 private:
@@ -18,7 +16,7 @@ public:
     ~IntegracaoGrafoPlano();
 
     //Vai construir vertices em estrela nos nós de dentro
-    IntegracaoGrafoPlano contruirMapaGrafo();
+    void contruirMapaGrafo();
 
     int getValorNo();
     void setValorNo(int valorNo);

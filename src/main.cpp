@@ -7,13 +7,16 @@
 int main(){
 
     int menu{};
-    int posX{};
-    int posY{};
-    int valor{};
+    int valor_no{};
+    bool valor_status{};
 
      Plano2D planoInicial;
 
-     planoInicial.gerarPlano();
+     planoInicial.gerarTeste();
+
+     planoInicial.contruirMapaGrafo();
+
+    //  planoInicial.bfs(46);
 
      while (true) {
 
@@ -21,7 +24,8 @@ int main(){
 
         std::cout << "Escolha uma opção: " << '\n';
         std::cout << "1. Imprimir plano" << '\n';
-        std::cout << "2. Colocar valor " << '\n';
+        std::cout << "2. Colocar infectado " << '\n';
+        std::cout << "3. Colocar bloqueio " << '\n';
         std::cout << "0. Sair " << '\n';
 
         std::cin >> menu;
@@ -33,10 +37,14 @@ int main(){
                 planoInicial.imprimirPlano();
                 break;
             case 2 :
-                std::cout << "Escolha x: "; std::cin >> posX;
-                std::cout << "Escolha y: "; std::cin >> posY;
-                std::cout << "Escolha valor: "; std::cin >> valor;
-                planoInicial.set_mapaXY(posX,posY,valor);
+                std::cout << "Escolha o no: "; std::cin >> valor_no;
+                std::cout << "Escolha o status: "; std::cin >> valor_status;
+                planoInicial.setContaminado(valor_no, valor_status);
+                break;
+            case 3 :
+                std::cout << "Escolha o no: "; std::cin >> valor_no;
+                std::cout << "Escolha o status: "; std::cin >> valor_status;
+                planoInicial.setBloqueio(valor_no, valor_status);
                 break;
             case 0 :
                 return 0;

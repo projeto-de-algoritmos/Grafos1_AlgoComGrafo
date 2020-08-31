@@ -1,7 +1,7 @@
 #include "../inc/integracaoGrafoPlano.hpp"
 
 IntegracaoGrafoPlano::IntegracaoGrafoPlano(){
-    for (int i = 0; i < getV(); i++) {
+    for (int i = 0; i < 1600 ; i++) {
             contaminado[i] = false;
             bloqueado[i] = false;
     }
@@ -12,9 +12,8 @@ IntegracaoGrafoPlano::~IntegracaoGrafoPlano() {
         delete bloqueado;
 }
 
-IntegracaoGrafoPlano IntegracaoGrafoPlano::contruirMapaGrafo() {
+void IntegracaoGrafoPlano::contruirMapaGrafo() {
 
-    IntegracaoGrafoPlano MapaNo;
 
 /*
     Essa seria a integração dos nós
@@ -30,21 +29,19 @@ IntegracaoGrafoPlano IntegracaoGrafoPlano::contruirMapaGrafo() {
 
             //TODO integração das laterais
 
-            if (i > 0 && i < 39 && j > 0 &&j < 39) {
-                MapaNo.addEdge((40*i)+j,(40*(i-1))+j-1);  /* lado \  */
-                MapaNo.addEdge((40*i)+j,(40*(i-1))+j);    /* lado |  */
-                MapaNo.addEdge((40*i)+j,(40*(i-1))+j+1);  /* lado /  */
-                MapaNo.addEdge((40*i)+j,(40*i)+j+1);      /* lado -  */
-                MapaNo.addEdge((40*i)+j,(40*(i+1))+j+1);  /* lado \  */
-                MapaNo.addEdge((40*i)+j,(40*(i+1))+j);    /* lado |  */
-                MapaNo.addEdge((40*i)+j,(40*(i+1))+j-1);  /* lado /  */
-                MapaNo.addEdge((40*i)+j,(40*(i))+j-1);    /* lado -  */
+            if (i > 0 && i < 40 && j > 0 &&j < 40) {
+                addEdge((40*i)+j,(40*(i-1))+j-1);  /* lado \  */
+                addEdge((40*i)+j,(40*(i-1))+j);    /* lado |  */
+                addEdge((40*i)+j,(40*(i-1))+j+1);  /* lado /  */
+                addEdge((40*i)+j,(40*i)+j+1);      /* lado -  */
+                addEdge((40*i)+j,(40*(i+1))+j+1);  /* lado \  */
+                addEdge((40*i)+j,(40*(i+1))+j);    /* lado |  */
+                addEdge((40*i)+j,(40*(i+1))+j-1);  /* lado /  */
+                addEdge((40*i)+j,(40*(i))+j-1);    /* lado -  */
 
             }
         }
     }
-
-    return MapaNo;
 }
 
 bool IntegracaoGrafoPlano::getContaminado(int no) {
