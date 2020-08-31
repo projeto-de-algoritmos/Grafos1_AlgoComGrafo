@@ -7,7 +7,10 @@ IntegracaoGrafoPlano::IntegracaoGrafoPlano(){
     }
 }
 
-IntegracaoGrafoPlano::~IntegracaoGrafoPlano(){}
+IntegracaoGrafoPlano::~IntegracaoGrafoPlano() {
+    	delete contaminado;
+        delete bloqueado;
+}
 
 IntegracaoGrafoPlano IntegracaoGrafoPlano::contruirMapaGrafo() {
 
