@@ -5,6 +5,30 @@
         adj = new list<int>[v];    //Vetor de lista de adjacencias para os vizinhos de cada nó
     }
 
+    void Grafo::iniciaNos(){       
+        for (int i = 0; i < v; i++){
+            contaminado[i] = false;
+            bloqueado[i] = false;
+        }
+    }
+    void Grafo::finalizaNos(){
+        delete contaminado;
+        delete bloqueado;
+    }
+    void Grafo::setContaminado(int no, bool x){
+        contaminado[no] = x;
+    }
+    void Grafo::setBloqueio(int no, bool x){
+        bloqueado[no] = x;
+    }
+
+    bool Grafo::getContaminado(int no){
+        return contaminado[no];
+    }
+    bool Grafo::getBloqueio(int no){
+        return bloqueado[no];
+    }
+
     int Grafo::getGraphSize(){
         return v;
     }
