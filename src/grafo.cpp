@@ -1,8 +1,16 @@
 #include "../inc/grafo.hpp"
 
+    Grafo::Grafo() {
+        v = 1600;
+        adj = new list<int>[v];
+    }
+
     Grafo::Grafo(int v){
         this->v = v;               //Define o tamanho do grafo
         adj = new list<int>[v];    //Vetor de lista de adjacencias para os vizinhos de cada nó
+    }
+
+    Grafo::~Grafo(){
     }
 
     int Grafo::getGraphSize(){
@@ -13,7 +21,7 @@
         adj[u].push_back(v);               //Adiciona uma aresta (u,v)
         //adj[v].push_back(u);               //Adiciona uma aresta (v,u)
     }
-    string Grafo::printEdge(int u, int v){ //Retorna a string formatada da aresta: (U, V) 
+    string Grafo::printEdge(int u, int v){ //Retorna a string formatada da aresta: (U, V)
         return "(" + to_string(u) + " ," + to_string(v) + ")";
     }
 
@@ -122,6 +130,20 @@ o mesmo algorítmo de busca em largura alterando a estrutura auxiliar de FILA pa
             }
         }
     }
+
+    int Grafo::getV() {
+        return v;
+    }
+
+    void Grafo::setV(int v) {
+        this->v = v;
+    }
+
+    void Grafo::setAdj() {
+        adj = new list<int>[v];
+    }
+
+
 /*
         Para teste
     Grafo g(8);
