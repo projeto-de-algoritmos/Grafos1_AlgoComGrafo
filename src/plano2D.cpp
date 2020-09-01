@@ -29,8 +29,9 @@ void Plano2D::setInfected(int no, bool status) {
 void Plano2D::gerarTeste() {
 
     setContaminado(43, true);
-    setBloqueio(47, true);
-    setBloqueio(1, true);
+    // setBloqueio(47, true);
+    // setBloqueio(1, true);
+
 }
 
 void Plano2D::imprimirPlano() {
@@ -45,17 +46,27 @@ void Plano2D::imprimirPlano() {
     }
 }
 
+// void Plano2D::conversorMapa(int x, int y) {
+
+//     if ( getContaminado((40*x)+y) == true) {
+//         std::cout << "\x1B[31m"<< mapaXY[x][y] <<"\033[0m" << " ";
+//     } else {
+//         if ( getBloqueio((40*x)+y) == true) {
+//             std::cout << "| ";
+//     }   else {
+//             std::cout << mapaXY[x][y] << " ";
+//         }
+//     }
+// }
 void Plano2D::conversorMapa(int x, int y) {
 
-    if ( getContaminado((40*x)+y) == true) {
-        std::cout << "\x1B[31m"<< mapaXY[x][y] <<"\033[0m" << " ";
-    } else {
-        if ( getBloqueio((40*x)+y) == true) {
-            std::cout << "| ";
-    }   else {
+    if(getBloqueio((40*x)+y) == true){
+        std::cout << "* ";
+    }else{
+        if ( getContaminado((40*x)+y) == true) {
+            std::cout << "\x1B[31m"<< mapaXY[x][y] <<"\033[0m" << " ";
+        }else {
             std::cout << mapaXY[x][y] << " ";
         }
     }
-
-
 }

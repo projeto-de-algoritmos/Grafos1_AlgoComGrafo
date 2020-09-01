@@ -15,9 +15,12 @@ using namespace std;
 class Grafo{
 
 private:
-    int v;                      //Qnt de nós
-    list<int> *adj;             //Ponteiro para lista de adjacencias (vizinhos do nó)
-public:
+    int v;                            //Qnt de nós
+    bool *contaminado = new bool[v];  //Determina o estado do nó
+    bool *bloqueado = new bool[v];    //Impossibilita contagio através desse nó
+public: 
+    
+    list<int> *adj;                   //Ponteiro para lista de adjacencias (vizinhos do nó)
     Grafo();
     Grafo(int v);                   //Construtor
     ~Grafo();
@@ -31,11 +34,15 @@ public:
     void dfs(int inicial);      //Busca em profundidade a partir de um nó específico
     void dfs();                 //Busca em profundidade a partir de um nó "aleatório"
 
+    void exameBFS(int inicial);
+    void exameDFS(int inicial);
+
     int getV();
     void setV(int v);
 
     void setAdj();
 
+    void getAdj(list<int> vetor[]);
 };
 
 #endif
