@@ -15,11 +15,13 @@ int main(){
      planoInicial.gerarTeste();
 
      planoInicial.construirMapaGrafo();
-
-     //planoInicial.bfs(43);
+     planoInicial.exameBFS(42);
+    //  cout << planoInicial.getContaminado(43) << endl;
+    //  cout << planoInicial.getBloqueio(43) << endl;
+     planoInicial.imprimirPlano();
 
      // coloque false para testar as buscas nos nós
-     while (true) {
+     while (false) {
 
          //TODO Melhorar a UI
 

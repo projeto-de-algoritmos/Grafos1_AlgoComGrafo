@@ -29,6 +29,8 @@ public:
 
     void juntarPlanoNo();
 
+    void exameBFS(int inicial);
+
 };
 
 
