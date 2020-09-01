@@ -1,5 +1,5 @@
 #include "../inc/integracaoGrafoPlano.hpp"
-#include "../inc/integracaoGrafoPlano.hpp"
+#include "../inc/geradoresAleatorios.hpp"
 
 IntegracaoGrafoPlano::IntegracaoGrafoPlano(){
     for (int i = 0; i < 1600 ; i++) {
@@ -77,14 +77,76 @@ void IntegracaoGrafoPlano::exameBFS(int inicial){
 
         if(contaminado[noTemp]){
             bloqueado[noTemp] = true;
+        }
+
+        for(i = adj[noTemp].begin(); i != adj[noTemp].end(); i++){ 
+            if(!marcado[*i]){
+                marcado[*i] = true;
+                S.push(*i);
+            }
+        }
+    }
+}
+void IntegracaoGrafoPlano::exameDFS(int inicial){
+    stack<int> S;                 
+    bool marcado[getV()];
+    int noTemp;
+
+    for(int i = 0; i < getV(); i++)    
+        marcado[i] = false;
+
+    S.push(inicial);
+    marcado[inicial] = true;
+
+    while(!S.empty()){
+        list<int>::iterator i;
+        noTemp = S.top();
+        S.pop();
+
+        if(contaminado[noTemp]){
+            bloqueado[noTemp] = true;
         // }else{
         //     setContaminado(noTemp, contagio((rand()%100 + 1), 75);
+        }
+
+        for(i = adj[noTemp].begin(); i != adj[noTemp].end(); i++){ 
+            if(!marcado[*i]){
+                marcado[*i] = true;
+                S.push(*i);
+            }
+        }
+    }
+}
+
+void IntegracaoGrafoPlano::gerarContagio(int inicial, int chanceContagio){
+    queue<int> S;
+    srand((unsigned) time(0));
+    bool marcado[getV()];
+    int noTemp;
+
+    for(int i = 0; i < getV(); i++)
+        marcado[i] = false;
+
+    S.push(inicial);
+    marcado[inicial] = true;
+    contaminado[inicial] = true;
+
+    while(!S.empty()){
+        list<int>::iterator i;
+        noTemp = S.front();
+        S.pop();
+
+        // if(contaminado[noTemp]){
+        //     contaminado[*i] = true;
         // }
 
         for(i = adj[noTemp].begin(); i != adj[noTemp].end(); i++){ 
             if(!marcado[*i]){
                 marcado[*i] = true;
                 S.push(*i);
+            }
+            if(contaminado[noTemp]){
+                setContaminado(*i, contagio(rand()%100 + 1, chanceContagio));
             }
         }
     }

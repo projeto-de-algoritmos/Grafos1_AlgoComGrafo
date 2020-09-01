@@ -2,6 +2,7 @@
 #define INTEGRACAOGRAFOPLANO_HPP
 
 #include "grafo.hpp"
+#include <ctime>
 
 class IntegracaoGrafoPlano : public Grafo {
 
@@ -30,7 +31,9 @@ public:
     void juntarPlanoNo();
 
     void exameBFS(int inicial);
+    void exameDFS(int inicial);
 
+    void gerarContagio(int inicial, int chanceContagio);
 };
 
 

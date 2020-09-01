@@ -28,7 +28,14 @@ void Plano2D::setInfected(int no, bool status) {
 
 void Plano2D::gerarTeste() {
 
-    setContaminado(43, true);
+    setContaminado(1560, true);
+    setContaminado(1230, true);
+    setContaminado(23, true);
+    setContaminado(45, true);
+    setContaminado(958, true);
+    setContaminado(1200, true);
+    setContaminado(48, true);
+    setContaminado(52, true);
     // setBloqueio(47, true);
     // setBloqueio(1, true);
 
