@@ -12,12 +12,12 @@ int main(){
 
      Plano2D planoInicial;
 
-     planoInicial.gerarTeste();
+    //  planoInicial.gerarTeste();
 
      planoInicial.construirMapaGrafo();
-     planoInicial.exameBFS(42);
-    //  cout << planoInicial.getContaminado(43) << endl;
-    //  cout << planoInicial.getBloqueio(43) << endl;
+     planoInicial.gerarContagio(inicioInfectado(1600), 75);
+     planoInicial.imprimirPlano();
+     planoInicial.exameDFS(inicioAgenteSaude(1600));
      planoInicial.imprimirPlano();
 
      // coloque false para testar as buscas nos nós
