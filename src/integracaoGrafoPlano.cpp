@@ -145,7 +145,7 @@ void IntegracaoGrafoPlano::gerarContagio(int inicial, int chanceContagio){
                 marcado[*i] = true;
                 S.push(*i);
             }
-            if(contaminado[noTemp]){
+            if(contaminado[noTemp] && !bloqueado[noTemp]){
                 setContaminado(*i, contagio(rand()%100 + 1, chanceContagio));
             }
         }
