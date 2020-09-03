@@ -5,19 +5,20 @@ IntegracaoGrafoPlano::IntegracaoGrafoPlano(){
     for (int i = 0; i < 1600 ; i++) {
             contaminado[i] = false;
             bloqueado[i] = false;
+
     }
 
-    std::thread t1 (&IntegracaoGrafoPlano::gerarContagio, this, 42, 75);
+    //INICIALIZA O TESTE
+    construirMapaGrafo();
+    std::thread t1 (&IntegracaoGrafoPlano::gerarContagio, this, inicioInfectado(1600), 75);
     // this_thread::sleep_for(chrono::microseconds(1000));
-    std::thread t2 (&IntegracaoGrafoPlano::exameDFS, this, 1400);
+    std::thread t2 (&IntegracaoGrafoPlano::exameDFS, this, inicioAgenteSaude(1600));
     // this_thread::sleep_for(chrono::microseconds(2000));
-    this_thread::sleep_for(chrono::seconds(2));
+    // this_thread::sleep_for(chrono::seconds(2));
     std::thread t3 (&IntegracaoGrafoPlano::loopImprime, this);
 
-    gerarContagio(42,75);
-
-    t1.join();
     t2.join();
+    t1.join();
     t3.join();
 
 
@@ -193,9 +194,10 @@ void IntegracaoGrafoPlano::imprimirPlano() {
 }
 
 void IntegracaoGrafoPlano::loopImprime() {
-    while (true) {
+    for (int i=0; i <= 100; i++){
         system("clear");
         imprimirPlano();
     }
+
 }
 
