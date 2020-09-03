@@ -34,8 +34,10 @@ public:
 
     void exameBFS(int inicial);
     void exameDFS(int inicial);
-
     void gerarContagio(int inicial, int chanceContagio);
+
+    int getTotalBloqueados();
+    int getTotalContaminados();
 
     void conversorMapa(int x, int y);
 
