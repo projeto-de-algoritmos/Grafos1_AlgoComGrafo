@@ -109,6 +109,7 @@ void IntegracaoGrafoPlano::setBloqueio(int no, bool status) {
 }
 
 void IntegracaoGrafoPlano::exameBFS(int inicial){
+    std::this_thread::sleep_for (std::chrono::milliseconds(1));
     queue<int> S;
     bool marcado[getV()];
     int noTemp;
@@ -171,6 +172,7 @@ void IntegracaoGrafoPlano::exameDFS(int inicial){
 }
 
 void IntegracaoGrafoPlano::gerarContagio(int inicial, int chanceContagio){
+    std::this_thread::sleep_for (std::chrono::milliseconds(1));
     queue<int> S;
     srand((unsigned) time(0));
     bool marcado[getV()];
