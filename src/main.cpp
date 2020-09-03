@@ -1,7 +1,9 @@
 #include <iostream>
+#include <thread>
 #include "../inc/plano2D.hpp"
 #include "../inc/grafo.hpp"
 #include "../inc/geradoresAleatorios.hpp"
+#include "../inc/integracaoGrafoPlano.hpp"
 
 
 int main(){
@@ -10,15 +12,7 @@ int main(){
     int valor_no{};
     bool valor_status{};
 
-     Plano2D planoInicial;
-
-    //  planoInicial.gerarTeste();
-
-     planoInicial.construirMapaGrafo();
-     planoInicial.gerarContagio(inicioInfectado(1600), 75);
-     planoInicial.imprimirPlano();
-     planoInicial.exameDFS(inicioAgenteSaude(1600));
-     planoInicial.imprimirPlano();
+     IntegracaoGrafoPlano teste;
 
      // coloque false para testar as buscas nos nós
      while (false) {
@@ -37,17 +31,17 @@ int main(){
 
         switch (menu) {
             case 1 :
-                planoInicial.imprimirPlano();
+                //planoInicial.imprimirPlano();
                 break;
             case 2 :
                 std::cout << "Escolha o no: "; std::cin >> valor_no;
                 std::cout << "Escolha o status: "; std::cin >> valor_status;
-                planoInicial.setContaminado(valor_no, valor_status);
+                //planoInicial.setContaminado(valor_no, valor_status);
                 break;
             case 3 :
                 std::cout << "Escolha o no: "; std::cin >> valor_no;
                 std::cout << "Escolha o status: "; std::cin >> valor_status;
-                planoInicial.setBloqueio(valor_no, valor_status);
+                //planoInicial.setBloqueio(valor_no, valor_status);
                 break;
             case 0 :
                 return 0;

@@ -2,9 +2,11 @@
 #define INTEGRACAOGRAFOPLANO_HPP
 
 #include "grafo.hpp"
+#include "plano2D.hpp"
+#include <thread>
 #include <ctime>
 
-class IntegracaoGrafoPlano : public Grafo {
+class IntegracaoGrafoPlano : public Grafo, public Plano2D {
 
 private:
     bool *contaminado = new bool[getV()];
@@ -34,6 +36,12 @@ public:
     void exameDFS(int inicial);
 
     void gerarContagio(int inicial, int chanceContagio);
+
+    void conversorMapa(int x, int y);
+
+    void imprimirPlano();
+
+    void loopImprime();
 };
 
 
