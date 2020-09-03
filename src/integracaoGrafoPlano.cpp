@@ -14,7 +14,7 @@ IntegracaoGrafoPlano::IntegracaoGrafoPlano(){
     construirMapaGrafo();
     // std::thread t1 (&IntegracaoGrafoPlano::gerarContagio, this, infectado, 66);
     // std::thread t2 (&IntegracaoGrafoPlano::exameBFS, this, agente);
-    std::thread t1 (&IntegracaoGrafoPlano::gerarContagio, this, inicioInfectado(1600), 66);
+    std::thread t1 (&IntegracaoGrafoPlano::gerarContagio, this, inicioInfectado(1600), 75);
     std::thread t2 (&IntegracaoGrafoPlano::exameBFS, this, inicioAgenteSaude(1600));
     std::thread t3 (&IntegracaoGrafoPlano::loopImprime, this);
 
@@ -76,6 +76,22 @@ void IntegracaoGrafoPlano::construirMapaGrafo() {
             }
         }
     }
+
+    for (int i=0; i < 39; i++) {
+        // linha superior
+        addEdge((i),i+1);
+        addEdge((i+1),i);
+        // coluna esquerda
+        addEdge((40*i),(40*(i+1)));
+        addEdge((40*(i+1)),(40*i));
+        // coluna direita
+        //addEdge(((40*i+1)-1),((40*(i+2))-1));
+        //addEdge(((40*(i+2))-1),((40*i+1)-1));
+
+        // coluna inferior
+        // addEdge( (1560+i), (1560+(i+1)) );
+        // addEdge( (1560+(i+1)), ( 1560+i ));
+    }
 }
 
 bool IntegracaoGrafoPlano::getContaminado(int no) {
@@ -107,6 +123,7 @@ void IntegracaoGrafoPlano::exameBFS(int inicial){
         list<int>::iterator i;
         noTemp = S.front();
         S.pop();
+        std::this_thread::sleep_for (std::chrono::microseconds(1));
 
         if(contaminado[noTemp]){
             bloqueado[noTemp] = true;
@@ -176,7 +193,9 @@ void IntegracaoGrafoPlano::gerarContagio(int inicial, int chanceContagio){
         // }
         // system("clear");
         // imprimirPlano();
+        std::this_thread::sleep_for (std::chrono::microseconds(1));
         for(i = adj[noTemp].begin(); i != adj[noTemp].end(); i++){
+
             if(!marcado[*i]){
                 marcado[*i] = true;
                 S.push(*i);
@@ -188,35 +207,67 @@ void IntegracaoGrafoPlano::gerarContagio(int inicial, int chanceContagio){
     }
 }
 
-void IntegracaoGrafoPlano::conversorMapa(int x, int y) {
+string IntegracaoGrafoPlano::conversorMapa(int x, int y) {
+
+    string tempMapa;
+
+
+
+    // if(getBloqueio((40*x)+y) == true){
+    //     std::cout << "* ";
+    // }else{
+    //     if ( getContaminado((40*x)+y) == true) {
+    //         std::cout << "\x1B[31m"<< mapaXY[x][y] <<"\033[0m" << " ";
+    //     }else {
+    //         std::cout << mapaXY[x][y] << " ";
+    //     }
+    // }
 
     if(getBloqueio((40*x)+y) == true){
-        std::cout << "* ";
+        tempMapa = tempMapa + "\x1B[34m*\033[0m ";
     }else{
         if ( getContaminado((40*x)+y) == true) {
-            std::cout << "\x1B[31m"<< mapaXY[x][y] <<"\033[0m" << " ";
+            tempMapa = tempMapa + "\x1B[31m" + std::to_string(mapaXY[x][y]) + "\033[0m" + " ";
         }else {
-            std::cout << mapaXY[x][y] << " ";
+            tempMapa = tempMapa + std::to_string(mapaXY[x][y]) + " ";
         }
     }
+
+    return tempMapa;
+
+
 }
 
-void IntegracaoGrafoPlano::imprimirPlano() {
+string IntegracaoGrafoPlano::imprimirPlano() {
+    string tempMapa;
+
     for (int i = 0; i < MAX_VALUE ; i++) {
         for (int j = 0; j < MAX_VALUE ; j++) {
-            conversorMapa(i,j);
+            tempMapa = tempMapa + conversorMapa(i,j);
 
             if (j == 39) {
-                std::cout << '\n';
+                tempMapa = tempMapa + '\n';
             }
         }
     }
+    return tempMapa;
 }
 
 void IntegracaoGrafoPlano::loopImprime() {
-    for (int i=0; i <= 100; i++){
-        system("clear");
-        imprimirPlano();
+    list<string> planos;
+
+    for (int i=0; i <= 150; i++){
+        // clearScreen();
+       planos.push_back(imprimirPlano());
+    }
+
+    for (list<string>::iterator it=planos.begin(); it != planos.end(); ++it){
+       clearScreen();
+
+       cout << '\n' << *it ;
+
+        cout << "Press Enter to Continue" << endl;
+    cin.ignore();
     }
 
 }
@@ -240,3 +291,8 @@ int IntegracaoGrafoPlano::getTotalBloqueados(){
     }
     return n;
 }
+
+  void IntegracaoGrafoPlano::clearScreen() {
+    cout << string( 50, '\n' );
+    }
+

@@ -18,8 +18,8 @@ private:
     int v;                            //Qnt de nós
     bool *contaminado = new bool[v];  //Determina o estado do nó
     bool *bloqueado = new bool[v];    //Impossibilita contagio através desse nó
-public: 
-    
+public:
+
     list<int> *adj;                   //Ponteiro para lista de adjacencias (vizinhos do nó)
     Grafo();
     Grafo(int v);                   //Construtor

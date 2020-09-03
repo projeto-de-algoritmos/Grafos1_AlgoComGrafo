@@ -1,5 +1,6 @@
 #include <iostream>
 #include <thread>
+#include <chrono>
 #include "../inc/plano2D.hpp"
 #include "../inc/grafo.hpp"
 #include "../inc/geradoresAleatorios.hpp"
@@ -13,6 +14,7 @@ int main(){
     bool valor_status{};
 
      IntegracaoGrafoPlano teste;
+
 
      // coloque false para testar as buscas nos nós
      while (false) {

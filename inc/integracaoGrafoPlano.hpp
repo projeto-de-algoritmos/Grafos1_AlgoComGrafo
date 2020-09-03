@@ -39,11 +39,13 @@ public:
     int getTotalBloqueados();
     int getTotalContaminados();
 
-    void conversorMapa(int x, int y);
+    string conversorMapa(int x, int y);
 
-    void imprimirPlano();
+    string imprimirPlano();
 
     void loopImprime();
+
+    void clearScreen();
 };
 
 
