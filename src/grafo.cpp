@@ -18,7 +18,7 @@
     }
     void Grafo::addEdge(int u, int v){     //Adiciona uma aresta
         adj[u].push_back(v);               //Adiciona uma aresta (u,v)
-        adj[v].push_back(u);               //Adiciona uma aresta (v,u)
+        // adj[v].push_back(u);               //Adiciona uma aresta (v,u)
     }
     string Grafo::printEdge(int u, int v){ //Retorna a string formatada da aresta: (U, V)
         return "(" + to_string(u) + " ," + to_string(v) + ")";

@@ -15,7 +15,7 @@ IntegracaoGrafoPlano::IntegracaoGrafoPlano(){
     // std::thread t1 (&IntegracaoGrafoPlano::gerarContagio, this, infectado, 66);
     // std::thread t2 (&IntegracaoGrafoPlano::exameBFS, this, agente);
     std::thread t1 (&IntegracaoGrafoPlano::gerarContagio, this, inicioInfectado(1600), 77);
-    std::thread t2 (&IntegracaoGrafoPlano::exameDFS, this, inicioAgenteSaude(1600));
+    std::thread t2 (&IntegracaoGrafoPlano::exameBFS, this, inicioAgenteSaude(1600));
     std::thread t3 (&IntegracaoGrafoPlano::loopImprime, this);
 
     t1.join();
@@ -124,9 +124,7 @@ void IntegracaoGrafoPlano::exameBFS(int inicial){
         noTemp = S.front();
         S.pop();
 
-        // if(contaminado[noTemp]){
-        //     bloqueado[noTemp] = true;
-        // }
+        // cout << "exame: " << noTemp << endl;
         std::this_thread::sleep_for (std::chrono::microseconds(1));
         // system("clear");
         // imprimirPlano();
@@ -135,17 +133,13 @@ void IntegracaoGrafoPlano::exameBFS(int inicial){
                 marcado[*i] = true;
                 S.push(*i);
             }
-
             bloqueado[*i] = true;
-
             if(contaminado[*i]) break;
-
-
         }
     }
 }
 void IntegracaoGrafoPlano::exameDFS(int inicial){
-    std::this_thread::sleep_for (std::chrono::milliseconds(10));
+    std::this_thread::sleep_for (std::chrono::milliseconds(1));
     stack<int> S;
     bool marcado[getV()];
     int noTemp;
@@ -161,14 +155,8 @@ void IntegracaoGrafoPlano::exameDFS(int inicial){
         noTemp = S.top();
         S.pop();
         std::this_thread::sleep_for (std::chrono::microseconds(1));
+        // cout << "exame: " << noTemp << endl;
 
-        // if(contaminado[noTemp]){
-        //     bloqueado[noTemp] = true;
-        // }else{
-        //     setContaminado(noTemp, contagio((rand()%100 + 1), 75);
-        // }
-        // system("clear");
-        // imprimirPlano();
         for(i = adj[noTemp].end(); i != adj[noTemp].begin(); i--){
             if(!marcado[*i]){
                 marcado[*i] = true;
@@ -182,7 +170,7 @@ void IntegracaoGrafoPlano::exameDFS(int inicial){
 }
 
 void IntegracaoGrafoPlano::gerarContagio(int inicial, int chanceContagio){
-    std::this_thread::sleep_for (std::chrono::milliseconds(10));
+    std::this_thread::sleep_for (std::chrono::milliseconds(30));
     queue<int> S;
     srand((unsigned) time(0));
     bool marcado[getV()];
@@ -194,7 +182,7 @@ void IntegracaoGrafoPlano::gerarContagio(int inicial, int chanceContagio){
     S.push(inicial);
     marcado[inicial] = true;
     contaminado[inicial] = true;
-
+    // cout << "contaminado: " << noTemp << endl;
     while(!S.empty()){
         list<int>::iterator i;
         noTemp = S.front();
@@ -203,8 +191,6 @@ void IntegracaoGrafoPlano::gerarContagio(int inicial, int chanceContagio){
         // if(contaminado[noTemp]){
         //     contaminado[*i] = true;
         // }
-        // system("clear");
-        // imprimirPlano();
         std::this_thread::sleep_for (std::chrono::microseconds(1));
         for(i = adj[noTemp].begin(); i != adj[noTemp].end(); i++){
 
