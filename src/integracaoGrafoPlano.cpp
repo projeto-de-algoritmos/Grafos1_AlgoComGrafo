@@ -14,14 +14,13 @@ IntegracaoGrafoPlano::IntegracaoGrafoPlano(){
     construirMapaGrafo();
     // std::thread t1 (&IntegracaoGrafoPlano::gerarContagio, this, infectado, 66);
     // std::thread t2 (&IntegracaoGrafoPlano::exameBFS, this, agente);
-    std::thread t1 (&IntegracaoGrafoPlano::gerarContagio, this, inicioInfectado(1600), 75);
+    std::thread t1 (&IntegracaoGrafoPlano::gerarContagio, this, inicioInfectado(1600), 77);
     std::thread t2 (&IntegracaoGrafoPlano::exameDFS, this, inicioAgenteSaude(1600));
     std::thread t3 (&IntegracaoGrafoPlano::loopImprime, this);
 
     t1.join();
     t2.join();
     t3.join();
-
 
     // std::thread t1 (&IntegracaoGrafoPlano::gerarContagio, this, infectado, 66);
     //     // this_thread::sleep_for(chrono::microseconds(1000));
@@ -80,16 +79,16 @@ void IntegracaoGrafoPlano::construirMapaGrafo() {
     for (int i=0; i < 39; i++) {
         // linha superior
         addEdge((i),i+1);
-        addEdge((i+1),i);
+        //addEdge((i+1),i);
         // coluna esquerda
         addEdge((40*i),(40*(i+1)));
-        addEdge((40*(i+1)),(40*i));
+        // addEdge((40*(i+1)),(40*i));
         // coluna direita
-        //addEdge(((40*i+1)-1),((40*(i+2))-1));
-        //addEdge(((40*(i+2))-1),((40*i+1)-1));
+        addEdge((40*(i+1)-1),((40*(i+2))-1));
+        // addEdge(((40*(i+2))-1),((40*i+1)-1));
 
-        // coluna inferior
-        // addEdge( (1560+i), (1560+(i+1)) );
+        // linha inferior
+        addEdge( (1560+i), (1560+(i+1)) );
         // addEdge( (1560+(i+1)), ( 1560+i ));
     }
 }
@@ -124,11 +123,11 @@ void IntegracaoGrafoPlano::exameBFS(int inicial){
         list<int>::iterator i;
         noTemp = S.front();
         S.pop();
-        std::this_thread::sleep_for (std::chrono::microseconds(1));
 
-        if(contaminado[noTemp]){
-            bloqueado[noTemp] = true;
-        }
+        // if(contaminado[noTemp]){
+        //     bloqueado[noTemp] = true;
+        // }
+        std::this_thread::sleep_for (std::chrono::microseconds(1));
         // system("clear");
         // imprimirPlano();
         for(i = adj[noTemp].begin(); i != adj[noTemp].end(); i++){
@@ -136,11 +135,17 @@ void IntegracaoGrafoPlano::exameBFS(int inicial){
                 marcado[*i] = true;
                 S.push(*i);
             }
+
+            bloqueado[*i] = true;
+
+            if(contaminado[*i]) break;
+
+
         }
     }
 }
 void IntegracaoGrafoPlano::exameDFS(int inicial){
-    std::this_thread::sleep_for (std::chrono::milliseconds(1));
+    std::this_thread::sleep_for (std::chrono::milliseconds(10));
     stack<int> S;
     bool marcado[getV()];
     int noTemp;
@@ -157,24 +162,27 @@ void IntegracaoGrafoPlano::exameDFS(int inicial){
         S.pop();
         std::this_thread::sleep_for (std::chrono::microseconds(1));
 
-        if(contaminado[noTemp]){
-            bloqueado[noTemp] = true;
+        // if(contaminado[noTemp]){
+        //     bloqueado[noTemp] = true;
         // }else{
         //     setContaminado(noTemp, contagio((rand()%100 + 1), 75);
-        }
+        // }
         // system("clear");
         // imprimirPlano();
-        for(i = adj[noTemp].begin(); i != adj[noTemp].end(); i++){
+        for(i = adj[noTemp].end(); i != adj[noTemp].begin(); i--){
             if(!marcado[*i]){
                 marcado[*i] = true;
                 S.push(*i);
             }
+            bloqueado[*i] = true;
+
+            if(contaminado[*i]) break;
         }
     }
 }
 
 void IntegracaoGrafoPlano::gerarContagio(int inicial, int chanceContagio){
-    std::this_thread::sleep_for (std::chrono::milliseconds(1));
+    std::this_thread::sleep_for (std::chrono::milliseconds(10));
     queue<int> S;
     srand((unsigned) time(0));
     bool marcado[getV()];
@@ -204,7 +212,7 @@ void IntegracaoGrafoPlano::gerarContagio(int inicial, int chanceContagio){
                 marcado[*i] = true;
                 S.push(*i);
             }
-            if(contaminado[noTemp] && !bloqueado[noTemp]){
+            if(contaminado[noTemp] && !bloqueado[*i]){
                 setContaminado(*i, contagio(rand()%100 + 1, chanceContagio));
             }
         }
@@ -227,7 +235,8 @@ string IntegracaoGrafoPlano::conversorMapa(int x, int y) {
     //     }
     // }
 
-    if(getBloqueio((40*x)+y) == true){
+    // bloqueado bota asterisco com azul
+    if(getBloqueio((40*x)+y) && getContaminado((40*x)+y)){
         tempMapa = tempMapa + "\x1B[34m*\033[0m ";
     }else{
         if ( getContaminado((40*x)+y) == true) {
@@ -260,7 +269,7 @@ string IntegracaoGrafoPlano::imprimirPlano() {
 void IntegracaoGrafoPlano::loopImprime() {
     list<string> planos;
 
-    for (int i=0; i <= 150; i++){
+    for (int i=0; i <= 300; i++){
         // clearScreen();
        planos.push_back(imprimirPlano());
     }
@@ -289,7 +298,7 @@ int IntegracaoGrafoPlano::getTotalContaminados(){
 int IntegracaoGrafoPlano::getTotalBloqueados(){
     int n = 0;
     for(int i = 0; i < 1600; i++){
-        if(bloqueado[i]){
+        if(bloqueado[i] && contaminado[i]){
             n++;
         }
     }
