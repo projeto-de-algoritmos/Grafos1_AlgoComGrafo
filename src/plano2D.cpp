@@ -11,7 +11,7 @@ Plano2D::Plano2D() {
 }
 
 Plano2D::~Plano2D() {
-    std::cout << "Plane destroyed" << '\n';
+    // std::cout << "Plane destroyed" << '\n';
 }
 
 int Plano2D::get_mapaXY(int i, int j) {

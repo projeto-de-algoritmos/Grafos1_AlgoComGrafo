@@ -17,33 +17,47 @@ int main(){
 
 
      // coloque false para testar as buscas nos nós
-     while (false) {
+    while (true) {
 
-         //TODO Melhorar a UI
+        std::cout << "Escolha a configuração da simulação: " << '\n';
+        std::cout << "1. 1 contaminado e 1 agente de saúde" << '\n';
+        std::cout << "2. 1 contaminado e 2 agentes de saúde " << '\n';
+        std::cout << "3. 1 contaminado e 3 agentes de saúde" << '\n';
+        std::cout << "4. 1 contaminado e 4 agentes de saúde" << '\n';
+        std::cout << "5. 2 contaminados e 2 agentes de saúde" << '\n';
+        std::cout << "6. 3 contaminados e 3 agentes de saúde" << '\n';
+        
+        std::cout << "7. Posicionar 2 contaminados e 2 agentes de saúde" << '\n';
 
-        std::cout << "Escolha uma opção: " << '\n';
-        std::cout << "1. Imprimir plano" << '\n';
-        std::cout << "2. Colocar infectado " << '\n';
-        std::cout << "3. Colocar bloqueio " << '\n';
-        std::cout << "0. Sair " << '\n';
+        std::cout << "0. Sair" << '\n';
 
         std::cin >> menu;
 
         system("clear");
+        
+        IntegracaoGrafoPlano();
 
         switch (menu) {
             case 1 :
-                //planoInicial.imprimirPlano();
+                teste.case1();
                 break;
             case 2 :
-                std::cout << "Escolha o no: "; std::cin >> valor_no;
-                std::cout << "Escolha o status: "; std::cin >> valor_status;
-                //planoInicial.setContaminado(valor_no, valor_status);
+                teste.case2();
                 break;
             case 3 :
-                std::cout << "Escolha o no: "; std::cin >> valor_no;
-                std::cout << "Escolha o status: "; std::cin >> valor_status;
-                //planoInicial.setBloqueio(valor_no, valor_status);
+                teste.case3();
+                break;
+            case 4:
+                teste.case4();
+                break;
+            case 5:
+                teste.case5();
+                break;
+            case 6:
+                teste.case6();
+                break;
+            case 7:
+                teste.case7();
                 break;
             case 0 :
                 return 0;

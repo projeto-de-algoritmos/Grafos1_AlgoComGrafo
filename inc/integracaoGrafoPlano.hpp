@@ -11,6 +11,7 @@ class IntegracaoGrafoPlano : public Grafo, public Plano2D {
 private:
     bool *contaminado = new bool[getV()];
     bool *bloqueado = new bool[getV()];
+    bool *agente = new bool[getV()];
 
 
 public:
@@ -46,6 +47,14 @@ public:
     void loopImprime();
 
     void clearScreen();
+    void case1();
+    void case2();
+    void case3();
+    void case4();
+    void case5();
+    void case6();
+    void case7();
+
 };
 
 

@@ -1,53 +1,191 @@
 #include "../inc/integracaoGrafoPlano.hpp"
 #include "../inc/geradoresAleatorios.hpp"
 
+    void IntegracaoGrafoPlano::case1(){
+        cout << "Insira, em valores inteiros, a taxa de contágio" << endl;
+        int x;
+        std::cin >> x;
+        construirMapaGrafo();
+        std::thread t1 (&IntegracaoGrafoPlano::gerarContagio, this, inicioInfectado(1600), x);
+        std::thread t3 (&IntegracaoGrafoPlano::loopImprime, this);
+        std::thread t2 (&IntegracaoGrafoPlano::exameBFS, this, inicioAgenteSaude(1600));
+
+        t1.join();
+        t2.join();
+        t3.join();
+    }
+    void IntegracaoGrafoPlano::case2(){
+        cout << "Insira, em valores inteiros, a taxa de contágio" << endl;
+        int x;
+        std::cin >> x;
+        construirMapaGrafo();
+        std::thread t1 (&IntegracaoGrafoPlano::gerarContagio, this, inicioInfectado(1600), x);
+        std::thread t3 (&IntegracaoGrafoPlano::loopImprime, this);
+        std::thread t21 (&IntegracaoGrafoPlano::exameBFS, this, inicioAgenteSaude(1600));
+        std::thread t22 (&IntegracaoGrafoPlano::exameBFS, this, inicioAgenteSaude(1599));
+
+        t1.join();
+        t21.join();
+        t22.join();
+        t3.join();
+    }
+    void IntegracaoGrafoPlano::case3(){
+        cout << "Insira, em valores inteiros, a taxa de contágio" << endl;
+        int x;
+        std::cin >> x;
+        construirMapaGrafo();
+        std::thread t1 (&IntegracaoGrafoPlano::gerarContagio, this, inicioInfectado(1600), x);
+        std::thread t3 (&IntegracaoGrafoPlano::loopImprime, this);
+        std::thread t21 (&IntegracaoGrafoPlano::exameBFS, this, inicioAgenteSaude(1600));
+        std::thread t22 (&IntegracaoGrafoPlano::exameBFS, this, inicioAgenteSaude(1599));
+        std::thread t23 (&IntegracaoGrafoPlano::exameBFS, this, inicioAgenteSaude(1598));
+
+        t1.join();
+        t21.join();
+        t22.join();
+        t23.join();
+        t3.join();
+    }
+    void IntegracaoGrafoPlano::case4(){
+        cout << "Insira, em valores inteiros, a taxa de contágio" << endl;
+        int x;
+        std::cin >> x;
+        construirMapaGrafo();
+        std::thread t1 (&IntegracaoGrafoPlano::gerarContagio, this, inicioInfectado(1600), x);
+        std::thread t3 (&IntegracaoGrafoPlano::loopImprime, this);
+        std::thread t21 (&IntegracaoGrafoPlano::exameBFS, this, inicioAgenteSaude(1600));
+        std::thread t22 (&IntegracaoGrafoPlano::exameBFS, this, inicioAgenteSaude(1599));
+        std::thread t23 (&IntegracaoGrafoPlano::exameBFS, this, inicioAgenteSaude(1598));
+        std::thread t24 (&IntegracaoGrafoPlano::exameBFS, this, inicioAgenteSaude(1598));
+
+        t1.join();
+        t21.join();
+        t22.join();
+        t23.join();
+        t24.join();
+        t3.join();
+    }
+    void IntegracaoGrafoPlano::case5(){
+        cout << "Insira, em valores inteiros, a taxa de contágio" << endl;
+        int x;
+        std::cin >> x;
+        construirMapaGrafo();
+        std::thread t11 (&IntegracaoGrafoPlano::gerarContagio, this, inicioInfectado(1600), x);
+        std::thread t12 (&IntegracaoGrafoPlano::gerarContagio, this, inicioInfectado(1599), x);
+        std::thread t3 (&IntegracaoGrafoPlano::loopImprime, this);
+        std::thread t21 (&IntegracaoGrafoPlano::exameBFS, this, inicioAgenteSaude(1600));
+        std::thread t22 (&IntegracaoGrafoPlano::exameBFS, this, inicioAgenteSaude(1599));
+
+        t11.join();
+        t12.join();
+        t21.join();
+        t22.join();
+        t3.join();
+    }
+    void IntegracaoGrafoPlano::case6(){
+        cout << "Insira, em valores inteiros, a taxa de contágio" << endl;
+        int x;
+        std::cin >> x;
+        construirMapaGrafo();
+        std::thread t11 (&IntegracaoGrafoPlano::gerarContagio, this, inicioInfectado(1600), x);
+        std::thread t12 (&IntegracaoGrafoPlano::gerarContagio, this, inicioInfectado(1599), x);
+        std::thread t13 (&IntegracaoGrafoPlano::gerarContagio, this, inicioInfectado(1598), x);
+        std::thread t3 (&IntegracaoGrafoPlano::loopImprime, this);
+        std::thread t21 (&IntegracaoGrafoPlano::exameBFS, this, inicioAgenteSaude(1600));
+        std::thread t22 (&IntegracaoGrafoPlano::exameBFS, this, inicioAgenteSaude(1599));
+        std::thread t23 (&IntegracaoGrafoPlano::exameBFS, this, inicioAgenteSaude(1598));
+
+        t11.join();
+        t12.join();
+        t13.join();
+        t21.join();
+        t22.join();
+        t23.join();
+        t3.join();
+    }
+
+void IntegracaoGrafoPlano::case7(){
+    int x1,y1, x2,y2, x3,y3, x4,y4, z;
+    while(true){
+        cout << "Insira a taxa de contágio, inteiro entre 0 e 100, do vírus em questão ";
+        std::cin >> z;
+        if(z < 1 || z > 100 )
+            cout << "Valor inválido" << endl;
+        else
+            break;
+    }
+    while(true){
+        cout << "Sendo o mapa uma matriz (i,j) 40x40, insira a posição do primeiro infectado " ;
+        std::cin >> x1;
+        std::cin >> y1;
+        if(x1 < 1 || x1 > 40 || y1 < 1 || y1 > 40)
+            cout << "Posição inválida" << endl;
+        else
+            break;
+    }
+    
+    while(true){
+        cout << "Sendo o mapa uma matriz (i,j) 40x40, insira a posição do segundo infectado " ;
+        std::cin >> x2;
+        std::cin >> y2;
+        if(x2 < 1 || x2 > 40 || y2 < 1 || y2 > 40)
+            cout << "Posição inválida" << endl;
+        else
+            break;
+    }
+    while(true){
+        cout << "Sendo o mapa uma matriz (i,j) 40x40, insira a posição do primeiro agente de saúde ";
+        std::cin >> x3;
+        std::cin >> y3;
+        if(x3 < 1 || x3 > 40 || y3 < 1 || y3 > 40)
+            cout << "Posição inválida" << endl;
+        else
+            break;
+    }
+    
+    while(true){
+        cout << "Sendo o mapa uma matriz (i,j) 40x40, insira a posição do segundo agente de saúde ";
+        std::cin >> x4;
+        std::cin >> y4;
+        if(x4 < 1 || x4 > 40 || y4 < 1 || y4 > 40)
+            cout << "Posição inválida" << endl;
+        else
+            break;
+    }
+
+    std::thread t11 (&IntegracaoGrafoPlano::gerarContagio, this, ((x1-1)*40+y1-1), z);
+    std::thread t12 (&IntegracaoGrafoPlano::gerarContagio, this, ((x2-1)*40+y2-1), z);
+    std::thread t21 (&IntegracaoGrafoPlano::exameBFS, this, ((x3-1)*40+y3-1));
+    std::thread t22 (&IntegracaoGrafoPlano::exameBFS, this, ((x4-1)*40+y4-1));
+    std::thread t3 (&IntegracaoGrafoPlano::loopImprime, this);
+    
+    t11.join();
+    t12.join();
+    t21.join();
+    t22.join();
+    t3.join();
+
+}
 IntegracaoGrafoPlano::IntegracaoGrafoPlano(){
     for (int i = 0; i < 1600 ; i++) {
             contaminado[i] = false;
             bloqueado[i] = false;
 
     }
-
-    //INICIALIZA O TESTE
-
-    // int agente = inicioAgenteSaude(1600), infectado = inicioInfectado(1600);
-    construirMapaGrafo();
-    // std::thread t1 (&IntegracaoGrafoPlano::gerarContagio, this, infectado, 66);
-    // std::thread t2 (&IntegracaoGrafoPlano::exameBFS, this, agente);
-    std::thread t1 (&IntegracaoGrafoPlano::gerarContagio, this, inicioInfectado(1600), 77);
-    std::thread t2 (&IntegracaoGrafoPlano::exameBFS, this, inicioAgenteSaude(1600));
-    std::thread t3 (&IntegracaoGrafoPlano::loopImprime, this);
-
-    t1.join();
-    t2.join();
-    t3.join();
-
-    // std::thread t1 (&IntegracaoGrafoPlano::gerarContagio, this, infectado, 66);
-    //     // this_thread::sleep_for(chrono::microseconds(1000));
-    // std::thread t2 (&IntegracaoGrafoPlano::exameBFS, this, agente);
-    //     // this_thread::sleep_for(chrono::microseconds(1000));
-    // //  this_thread::sleep_for(chrono::seconds(2));
-    // std::thread t3 (&IntegracaoGrafoPlano::loopImprime, this);
-
-    // t3.join();
-    // t1.join();
-    // t2.join();
-
-    // cout << "Inicio cocntaminado: " << infectado << endl;
-    // cout << "Inicio do Agente: " << agente << endl;
-    cout << "Contaminados: " << getTotalContaminados() << endl;
-    cout << "Bloqueados: " << getTotalBloqueados() << endl;
-    exameBFS(inicioAgenteSaude(1600));
 }
+/*####################### estatisticas ############################*/
+    // cout << "Contaminados: " << getTotalContaminados() << endl;
+    // cout << "Bloqueados: " << getTotalBloqueados() << endl;
+
+
 
 IntegracaoGrafoPlano::~IntegracaoGrafoPlano() {
     	delete contaminado;
         delete bloqueado;
+        delete agente;
 }
 
 void IntegracaoGrafoPlano::construirMapaGrafo() {
-
-
 /*
     Essa seria a integração dos nós
        *  *  *
@@ -56,12 +194,9 @@ void IntegracaoGrafoPlano::construirMapaGrafo() {
         / | \
        *  *  *
 */
-
     for(int i = 0; i < MAX_VALUE; i++) {
         for (int j = 0; j < MAX_VALUE; j++) {
-
             //TODO integração das laterais
-
             if (i > 0 && i < 39 && j > 0 &&j < 39) {
                 addEdge((40*i)+j,(40*(i-1))+j-1);  /* lado \  */
                 addEdge((40*i)+j,(40*(i-1))+j);    /* lado |  */
@@ -71,7 +206,6 @@ void IntegracaoGrafoPlano::construirMapaGrafo() {
                 addEdge((40*i)+j,(40*(i+1))+j);    /* lado |  */
                 addEdge((40*i)+j,(40*(i+1))+j-1);  /* lado /  */
                 addEdge((40*i)+j,(40*(i))+j-1);    /* lado -  */
-
             }
         }
     }
@@ -79,16 +213,19 @@ void IntegracaoGrafoPlano::construirMapaGrafo() {
     for (int i=0; i < 39; i++) {
         // linha superior
         addEdge((i),i+1);
+        addEdge((i), (40+i)); //liga topo ao centro
         //addEdge((i+1),i);
         // coluna esquerda
         addEdge((40*i),(40*(i+1)));
+        addEdge((40*i), (40*i+1)); //liga col esquerda ao centro
         // addEdge((40*(i+1)),(40*i));
         // coluna direita
         addEdge((40*(i+1)-1),((40*(i+2))-1));
+        addEdge((40*(i+1)-1), (40*(i+1)-2));//liga col direita ao centro
         // addEdge(((40*(i+2))-1),((40*i+1)-1));
-
         // linha inferior
         addEdge( (1560+i), (1560+(i+1)) );
+        addEdge((1560+i), (1560-40+i));//liga o de baixo ao centro
         // addEdge( (1560+(i+1)), ( 1560+i ));
     }
 }
@@ -118,6 +255,7 @@ void IntegracaoGrafoPlano::exameBFS(int inicial){
 
     S.push(inicial);
     marcado[inicial] = true;
+    agente[inicial] = true;
 
     while(!S.empty()){
         list<int>::iterator i;
@@ -134,7 +272,7 @@ void IntegracaoGrafoPlano::exameBFS(int inicial){
                 S.push(*i);
             }
             bloqueado[*i] = true;
-            if(contaminado[*i]) break;
+            // if(contaminado[*i]) break;
         }
     }
 }
@@ -157,7 +295,7 @@ void IntegracaoGrafoPlano::exameDFS(int inicial){
         std::this_thread::sleep_for (std::chrono::microseconds(1));
         // cout << "exame: " << noTemp << endl;
 
-        for(i = adj[noTemp].end(); i != adj[noTemp].begin(); i--){
+        for(i = adj[noTemp].begin(); i != adj[noTemp].end(); i++){
             if(!marcado[*i]){
                 marcado[*i] = true;
                 S.push(*i);
@@ -170,7 +308,7 @@ void IntegracaoGrafoPlano::exameDFS(int inicial){
 }
 
 void IntegracaoGrafoPlano::gerarContagio(int inicial, int chanceContagio){
-    std::this_thread::sleep_for (std::chrono::milliseconds(30));
+    std::this_thread::sleep_for (std::chrono::milliseconds(5));
     queue<int> S;
     srand((unsigned) time(0));
     bool marcado[getV()];
@@ -206,11 +344,7 @@ void IntegracaoGrafoPlano::gerarContagio(int inicial, int chanceContagio){
 }
 
 string IntegracaoGrafoPlano::conversorMapa(int x, int y) {
-
     string tempMapa;
-
-
-
     // if(getBloqueio((40*x)+y) == true){
     //     std::cout << "* ";
     // }else{
@@ -222,7 +356,10 @@ string IntegracaoGrafoPlano::conversorMapa(int x, int y) {
     // }
 
     // bloqueado bota asterisco com azul
-    if(getBloqueio((40*x)+y) && getContaminado((40*x)+y)){
+    if(agente[40*x+y]){
+        tempMapa = tempMapa + "\x1B[34mA\033[0m ";
+    }else if(getBloqueio((40*x)+y) && getContaminado((40*x)+y)){
+    // if(getBloqueio((40*x)+y)){
         tempMapa = tempMapa + "\x1B[34m*\033[0m ";
     }else{
         if ( getContaminado((40*x)+y) == true) {
@@ -233,8 +370,6 @@ string IntegracaoGrafoPlano::conversorMapa(int x, int y) {
     }
 
     return tempMapa;
-
-
 }
 
 string IntegracaoGrafoPlano::imprimirPlano() {
@@ -266,7 +401,7 @@ void IntegracaoGrafoPlano::loopImprime() {
        cout << '\n' << *it ;
 
         cout << "Press Enter to Continue" << endl;
-    cin.ignore();
+        cin.ignore();
     }
 
 }
