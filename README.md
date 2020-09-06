@@ -9,6 +9,9 @@
 | 16/0141842  |  [Philipe Rosa Serafim](https://github.com/philipeserafim) |
 | 18/0117548  |  [Bruno Carmo Nunes](https://github.com/brunocmo) |
 
+## Video 
+
+https://youtu.be/_tee35JohEs
 
 ## Sobre
 Devido a crise atual do COVID-19 foi feito uma simulação que mostra a progressão de infectados de um espaço confinado no CLI(40x40). Sendo que os agentes de saúde tem o trabalho de identificar e colocar em quarentena os infectados.
