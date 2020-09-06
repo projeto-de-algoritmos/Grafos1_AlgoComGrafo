@@ -123,7 +123,7 @@ void IntegracaoGrafoPlano::case7(){
         else
             break;
     }
-    
+
     while(true){
         cout << "Sendo o mapa uma matriz (i,j) 40x40, insira a posição do segundo infectado " ;
         std::cin >> x2;
@@ -142,7 +142,7 @@ void IntegracaoGrafoPlano::case7(){
         else
             break;
     }
-    
+
     while(true){
         cout << "Sendo o mapa uma matriz (i,j) 40x40, insira a posição do segundo agente de saúde ";
         std::cin >> x4;
@@ -158,7 +158,7 @@ void IntegracaoGrafoPlano::case7(){
     std::thread t21 (&IntegracaoGrafoPlano::exameBFS, this, ((x3-1)*40+y3-1));
     std::thread t22 (&IntegracaoGrafoPlano::exameBFS, this, ((x4-1)*40+y4-1));
     std::thread t3 (&IntegracaoGrafoPlano::loopImprime, this);
-    
+
     t11.join();
     t12.join();
     t21.join();
@@ -426,7 +426,16 @@ int IntegracaoGrafoPlano::getTotalBloqueados(){
     return n;
 }
 
-  void IntegracaoGrafoPlano::clearScreen() {
+void IntegracaoGrafoPlano::clearScreen() {
     cout << string( 50, '\n' );
     }
 
+void IntegracaoGrafoPlano::limparMapa() {
+    for (int i = 0; i < 1600 ; i++) {
+            contaminado[i] = false;
+            bloqueado[i] = false;
+
+    }
+
+
+}

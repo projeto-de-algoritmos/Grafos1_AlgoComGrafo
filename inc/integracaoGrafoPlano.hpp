@@ -55,6 +55,8 @@ public:
     void case6();
     void case7();
 
+    void limparMapa();
+
 };
 
 
