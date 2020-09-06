@@ -7,6 +7,8 @@
 #include <stack>
 
 //Numero total da matrix 40x40
+
+constexpr int MAX_NO {1600};
 constexpr int MAX_VALUE { 40 };
 
 

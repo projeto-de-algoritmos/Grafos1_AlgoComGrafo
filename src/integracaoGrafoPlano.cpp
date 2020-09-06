@@ -2,9 +2,15 @@
 #include "../inc/geradoresAleatorios.hpp"
 
     void IntegracaoGrafoPlano::case1(){
-        cout << "Insira, em valores inteiros, a taxa de contágio (0 - 100%): " << endl;
         int x;
-        std::cin >> x;
+        while(true){
+            cout << "Insira, em valores inteiros, a taxa de contágio (0 - 100%): ";
+                std::cin >> x;
+            if(x < 0 || x > 100 )
+                cout << "Valor inválido!" << endl;
+            else
+                break;
+        }
         cin.ignore(numeric_limits<streamsize>::max(),'\n');
         construirMapaGrafo();
         std::thread t1 (&IntegracaoGrafoPlano::gerarContagio, this, inicioInfectado(1600), x);
@@ -16,9 +22,15 @@
         t3.join();
     }
     void IntegracaoGrafoPlano::case2(){
-        cout << "Insira, em valores inteiros, a taxa de contágio (0 - 100%)" << endl;
         int x;
-        std::cin >> x;
+        while(true){
+            cout << "Insira, em valores inteiros, a taxa de contágio (0 - 100%): ";
+                std::cin >> x;
+            if(x < 0 || x > 100 )
+                cout << "Valor inválido!" << endl;
+            else
+                break;
+        }
         cin.ignore(numeric_limits<streamsize>::max(),'\n');
         construirMapaGrafo();
         std::thread t1 (&IntegracaoGrafoPlano::gerarContagio, this, inicioInfectado(1600), x);
@@ -32,9 +44,15 @@
         t3.join();
     }
     void IntegracaoGrafoPlano::case3(){
-        cout << "Insira, em valores inteiros, a taxa de contágio (0 - 100%)" << endl;
         int x;
-        std::cin >> x;
+        while(true){
+            cout << "Insira, em valores inteiros, a taxa de contágio (0 - 100%): ";
+                std::cin >> x;
+            if(x < 0 || x > 100 )
+                cout << "Valor inválido!" << endl;
+            else
+                break;
+        }
         cin.ignore(numeric_limits<streamsize>::max(),'\n');
         construirMapaGrafo();
         std::thread t1 (&IntegracaoGrafoPlano::gerarContagio, this, inicioInfectado(1600), x);
@@ -50,9 +68,15 @@
         t3.join();
     }
     void IntegracaoGrafoPlano::case4(){
-        cout << "Insira, em valores inteiros, a taxa de contágio (0 - 100%)" << endl;
         int x;
-        std::cin >> x;
+        while(true){
+            cout << "Insira, em valores inteiros, a taxa de contágio (0 - 100%): ";
+                std::cin >> x;
+            if(x < 0 || x > 100 )
+                cout << "Valor inválido!" << endl;
+            else
+                break;
+        }
         cin.ignore(numeric_limits<streamsize>::max(),'\n');
         construirMapaGrafo();
         std::thread t1 (&IntegracaoGrafoPlano::gerarContagio, this, inicioInfectado(1600), x);
@@ -70,9 +94,15 @@
         t3.join();
     }
     void IntegracaoGrafoPlano::case5(){
-        cout << "Insira, em valores inteiros, a taxa de contágio (0 - 100%)" << endl;
         int x;
-        std::cin >> x;
+        while(true){
+            cout << "Insira, em valores inteiros, a taxa de contágio (0 - 100%): ";
+                std::cin >> x;
+            if(x < 0 || x > 100 )
+                cout << "Valor inválido!" << endl;
+            else
+                break;
+        }
         cin.ignore(numeric_limits<streamsize>::max(),'\n');
         construirMapaGrafo();
         std::thread t11 (&IntegracaoGrafoPlano::gerarContagio, this, inicioInfectado(1600), x);
@@ -88,9 +118,15 @@
         t3.join();
     }
     void IntegracaoGrafoPlano::case6(){
-        cout << "Insira, em valores inteiros, a taxa de contágio (0 - 100%)" << endl;
         int x;
-        std::cin >> x;
+        while(true){
+            cout << "Insira, em valores inteiros, a taxa de contágio (0 - 100%): ";
+                std::cin >> x;
+            if(x < 0 || x > 100 )
+                cout << "Valor inválido!" << endl;
+            else
+                break;
+        }
         cin.ignore(numeric_limits<streamsize>::max(),'\n');
         construirMapaGrafo();
         std::thread t11 (&IntegracaoGrafoPlano::gerarContagio, this, inicioInfectado(1600), x);
@@ -111,54 +147,60 @@
     }
 
 void IntegracaoGrafoPlano::case7(){
-    int x1,y1, x2,y2, x3,y3, x4,y4, z;
+    int x1,y1;
+    int x2,y2;
+    int x3,y3;
+    int x4,y4;
+    int z;
+
     while(true){
-        cout << "Insira a taxa de contágio, inteiro entre 0 e 100, do vírus em questão ";
+        cout << "Insira a taxa de contágio, inteiro entre 0 e 100, do vírus em questão (0 - 100%): ";
         std::cin >> z;
-        if(z < 1 || z > 100 )
-            cout << "Valor inválido" << endl;
+        if(z < 0 || z > 100 )
+            cout << "Valor inválido!" << endl;
         else
             break;
     }
     while(true){
-        cout << "Sendo o mapa uma matriz (i,j) 40x40, insira a posição do primeiro infectado " ;
+        cout << "Sendo o mapa uma matriz (i,j) 40x40, insira a posição do primeiro infectado: " ;
         std::cin >> x1;
         std::cin >> y1;
         if(x1 < 1 || x1 > 40 || y1 < 1 || y1 > 40)
-            cout << "Posição inválida" << endl;
+            cout << "Posição inválida!" << endl;
         else
             break;
     }
 
     while(true){
-        cout << "Sendo o mapa uma matriz (i,j) 40x40, insira a posição do segundo infectado " ;
+        cout << "Sendo o mapa uma matriz (i,j) 40x40, insira a posição do segundo infectado: " ;
         std::cin >> x2;
         std::cin >> y2;
         if(x2 < 1 || x2 > 40 || y2 < 1 || y2 > 40)
-            cout << "Posição inválida" << endl;
+            cout << "Posição inválida!" << endl;
         else
             break;
     }
     while(true){
-        cout << "Sendo o mapa uma matriz (i,j) 40x40, insira a posição do primeiro agente de saúde ";
+        cout << "Sendo o mapa uma matriz (i,j) 40x40, insira a posição do primeiro agente de saúde: ";
         std::cin >> x3;
         std::cin >> y3;
         if(x3 < 1 || x3 > 40 || y3 < 1 || y3 > 40)
-            cout << "Posição inválida" << endl;
+            cout << "Posição inválida!" << endl;
         else
             break;
     }
 
     while(true){
-        cout << "Sendo o mapa uma matriz (i,j) 40x40, insira a posição do segundo agente de saúde ";
+        cout << "Sendo o mapa uma matriz (i,j) 40x40, insira a posição do segundo agente de saúde: ";
         std::cin >> x4;
         std::cin >> y4;
         if(x4 < 1 || x4 > 40 || y4 < 1 || y4 > 40)
-            cout << "Posição inválida" << endl;
+            cout << "Posição inválida!" << endl;
         else
             break;
     }
 
+    construirMapaGrafo();
     std::thread t11 (&IntegracaoGrafoPlano::gerarContagio, this, ((x1-1)*40+y1-1), z);
     std::thread t12 (&IntegracaoGrafoPlano::gerarContagio, this, ((x2-1)*40+y2-1), z);
     std::thread t21 (&IntegracaoGrafoPlano::exameBFS, this, ((x3-1)*40+y3-1));
@@ -173,7 +215,7 @@ void IntegracaoGrafoPlano::case7(){
 
 }
 IntegracaoGrafoPlano::IntegracaoGrafoPlano(){
-    for (int i = 0; i < 1600 ; i++) {
+    for (int i = 0; i < MAX_NO ; i++) {
             contaminado[i] = false;
             bloqueado[i] = false;
 
@@ -234,6 +276,11 @@ void IntegracaoGrafoPlano::construirMapaGrafo() {
         addEdge((1560+i), (1560-40+i));//liga o de baixo ao centro
         // addEdge( (1560+(i+1)), ( 1560+i ));
     }
+
+    // ligar ultimo nó
+       addEdge(1599, 1598);
+       addEdge(1599, 1597);
+       addEdge(1599, 1558);
 }
 
 bool IntegracaoGrafoPlano::getContaminado(int no) {
@@ -253,10 +300,10 @@ void IntegracaoGrafoPlano::setBloqueio(int no, bool status) {
 void IntegracaoGrafoPlano::exameBFS(int inicial){
     std::this_thread::sleep_for (std::chrono::milliseconds(1));
     queue<int> S;
-    bool marcado[getV()];
+    bool marcado[MAX_NO];
     int noTemp;
 
-    for(int i = 0; i < getV(); i++)
+    for(int i = 0; i < MAX_NO; i++)
         marcado[i] = false;
 
     S.push(inicial);
@@ -285,10 +332,10 @@ void IntegracaoGrafoPlano::exameBFS(int inicial){
 void IntegracaoGrafoPlano::exameDFS(int inicial){
     std::this_thread::sleep_for (std::chrono::milliseconds(1));
     stack<int> S;
-    bool marcado[getV()];
+    bool marcado[MAX_NO];
     int noTemp;
 
-    for(int i = 0; i < getV(); i++)
+    for(int i = 0; i < MAX_NO; i++)
         marcado[i] = false;
 
     S.push(inicial);
@@ -317,10 +364,10 @@ void IntegracaoGrafoPlano::gerarContagio(int inicial, int chanceContagio){
     std::this_thread::sleep_for (std::chrono::milliseconds(5));
     queue<int> S;
     srand((unsigned) time(0));
-    bool marcado[getV()];
+    bool marcado[MAX_NO];
     int noTemp;
 
-    for(int i = 0; i < getV(); i++)
+    for(int i = 0; i < MAX_NO; i++)
         marcado[i] = false;
 
     S.push(inicial);
@@ -422,14 +469,14 @@ void IntegracaoGrafoPlano::loopImprime() {
 
     }
 
-    cout << "\nTotal de infectados: " << getTotalContaminados();
+    // cout << "\nTotal de infectados: " << getTotalContaminados();
     cout << "\nTotal de infectados/bloqueados: " << getTotalBloqueados() << "\n\n";
 
 }
 
 int IntegracaoGrafoPlano::getTotalContaminados(){
     int n = 0;
-    for(int i = 0; i < 1600; i++){
+    for(int i = 0; i < MAX_NO; i++){
         if(contaminado[i]){
             n++;
         }
@@ -439,7 +486,7 @@ int IntegracaoGrafoPlano::getTotalContaminados(){
 
 int IntegracaoGrafoPlano::getTotalBloqueados(){
     int n = 0;
-    for(int i = 0; i < 1600; i++){
+    for(int i = 0; i < MAX_NO; i++){
         if(bloqueado[i] && contaminado[i]){
             n++;
         }
@@ -452,7 +499,7 @@ void IntegracaoGrafoPlano::clearScreen() {
     }
 
 void IntegracaoGrafoPlano::limparMapa() {
-    for (int i = 0; i < 1600 ; i++) {
+    for (int i = 0; i < MAX_NO ; i++) {
             contaminado[i] = false;
             bloqueado[i] = false;
             agente[i] = false;

@@ -1,7 +1,7 @@
 #include "../inc/grafo.hpp"
 #include "../inc/integracaoGrafoPlano.hpp"
     Grafo::Grafo() {
-        v = 1600;
+        v = MAX_NO;
         adj = new list<int>[v];
     }
 
@@ -26,7 +26,7 @@
 
     void Grafo::bfs(int inicial){     //Busca em largura a partir de um nó especifico
         queue<int> S;                 //Fila usada no algorítmo
-        bool marcado[v];              //Vetor que guarda a informação se o nó V foi visitado
+        bool marcado[MAX_NO];              //Vetor que guarda a informação se o nó V foi visitado
 
         for(int i = 0; i < v; i++)    //Marca todo mundo como não visitado
             marcado[i] = false;
@@ -51,7 +51,7 @@
     void Grafo::bfs(){                 //Busca em largura a partir de um nó "aleatório"
         int componente = 0;            //Indicador de componentes
         queue<int> S;
-        bool marcado[v];
+        bool marcado[MAX_NO];
 
         for(int i = 0; i < v; i++)
             marcado[i] = false;
@@ -83,7 +83,7 @@ o mesmo algorítmo de busca em largura alterando a estrutura auxiliar de FILA pa
 
     void Grafo::dfs(int inicial){     //Busca em largura a partir de um nó especifico
         stack<int> S;                 //Pilha usada no algorítmo
-        bool marcado[v];              //Vetor que guarda a informação se o nó V foi visitado
+        bool marcado[MAX_NO];              //Vetor que guarda a informação se o nó V foi visitado
 
         for(int i = 0; i < v; i++)    //Marca todo mundo como não visitado
             marcado[i] = false;
@@ -106,7 +106,7 @@ o mesmo algorítmo de busca em largura alterando a estrutura auxiliar de FILA pa
 
     void Grafo::dfs(){                 //Busca em largura a partir de um nó "aleatório"
         stack<int> S;
-        bool marcado[v];
+        bool marcado[MAX_NO];
 
         for(int i = 0; i < v; i++)
             marcado[i] = false;

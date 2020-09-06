@@ -10,11 +10,10 @@
 int main(){
 
     int menu{};
-    int valor_no{};
-    bool valor_status{};
 
      IntegracaoGrafoPlano teste;
 
+     system("clear");
 
      // coloque false para testar as buscas nos nós
     while (true) {
