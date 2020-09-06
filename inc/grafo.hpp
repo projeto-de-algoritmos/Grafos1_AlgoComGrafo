@@ -17,7 +17,7 @@ using namespace std;
 class Grafo{
 
 private:
-    int v;                            //Qnt de nós
+    int v = MAX_NO;                        //Qnt de nós
     bool *contaminado = new bool[v];  //Determina o estado do nó
     bool *bloqueado = new bool[v];    //Impossibilita contagio através desse nó
 public:

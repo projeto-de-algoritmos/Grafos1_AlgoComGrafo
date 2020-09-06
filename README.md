@@ -41,7 +41,7 @@ Para limpar os arquivos .o e bin do programa:
 ## Uso
 Primeiro compile o programa com o `make` e depois execute o programa com `make run` , vai apresentar-se na tela inicial um menu, onde o usuário pode escolher número pré definido de contaminados e agentes de saúde.
 
-Todos as opções(1-7) tem que se definir a taxa de contágio, que vai de 0% a 100%. Quanto maior alta a taxa, mais rápido o virús se espalha.
+Todos as opções(1-7) tem que se definir a taxa de contágio, que vai de 0% a 100%. Quanto mais alta a taxa, mais rápido o virús se espalha.
 
 Ao inicializar o gráfico com o número de interações(150), você pode passar de um por um, ou segurar o botão ENTER para observar a progressão de uma maneira rápida.
 
